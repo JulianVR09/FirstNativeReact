@@ -2,23 +2,16 @@ import React from 'react';
 import { Image, StyleSheet } from 'react-native';
 import Onboarding from 'react-native-onboarding-swiper';
 import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from '../interfaces/navigation.interface';
+import { useNavigation } from '@react-navigation/native';
 
-type RootStackParamList = {
-    Dashboard: undefined,
-    OnBoardingScreen: undefined,
-}
 
-type OnboardingScreenNavigationProp = StackNavigationProp<RootStackParamList, 'OnBoardingScreen'>
-
-interface Props {
-    navigation: OnboardingScreenNavigationProp
-}
-
-const OnBoardingScreen: React.FC<Props> = ({navigation}) => {
+const OnBoardingScreen = () => {
+    const navigation = useNavigation<RootStackParamList>()
     return (
         <Onboarding
-            onSkip={() => navigation.replace('Dashboard')}
-            onDone={() => navigation.replace('Dashboard')}
+            onSkip={() => navigation.navigate('Login')}
+            onDone={() => navigation.navigate('Login')}
             pages={[
                 {
                     backgroundColor: '#D9D9D9',

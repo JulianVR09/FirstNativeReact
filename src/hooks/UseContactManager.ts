@@ -1,6 +1,6 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import * as ImagePicker from 'react-native-image-picker';
-import {Contact} from '../interfaces/Contact.interface';
+import { Contact } from '../interfaces/Contact.interface';
 
 interface UseContactManagerProps {
   contact: Contact | null;
@@ -21,7 +21,23 @@ const useContactManager = ({
 
   const selectImage = () => {
     ImagePicker.launchImageLibrary(
-      {mediaType: 'photo', quality: 1},
+      { mediaType: 'photo', quality: 1 },
+      (response: ImagePicker.ImagePickerResponse) => {
+        if (
+          !response.didCancel &&
+          !response.errorMessage &&
+          response.assets &&
+          response.assets.length > 0
+        ) {
+          setPhoto(response.assets[0].uri ?? null);
+        }
+      },
+    );
+  };
+
+  const takePhoto = () => {
+    ImagePicker.launchCamera(
+      { mediaType: 'photo', quality: 1 },
       (response: ImagePicker.ImagePickerResponse) => {
         if (
           !response.didCancel &&
@@ -41,7 +57,10 @@ const useContactManager = ({
       return;
     }
 
-    const newContact: Contact = {name, phone, email, photo};
+    const newContact: Contact = {
+      name, phone, email, photo,
+      location: null,
+    };
     console.log('Saving contact:', newContact);
     onAddContact(newContact);
   };
@@ -66,6 +85,7 @@ const useContactManager = ({
     setPhone,
     setEmail,
     selectImage,
+    takePhoto,
     saveContact,
     openDeleteModal,
     closeDeleteModal,
