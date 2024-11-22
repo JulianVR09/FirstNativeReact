@@ -1,79 +1,113 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
-# Getting Started
+# Contact App 📱
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+This is a **React Native** contact management application designed for efficient management and an intuitive user experience. The app includes features like login, registration, onboarding, permissions, and contact management.
 
-## Step 1: Start the Metro Server
+## Features 🚀
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+### 1. **Onboarding**
+   - **Description:** When opening the app for the first time, users see a series of introduction screens highlighting the app's main features.
+   - **Logic:** Once completed, the onboarding screens will not appear again (stored with AsyncStorage).
+   - **Highlights:**
+     - App overview.
+     - Intuitive usage.
+     - Benefits of contact management.
 
-To start Metro, run the following command from the _root_ of your React Native project:
+---
 
-```bash
-# using npm
-npm start
+### 2. **Authentication (Login and Registration)**
+   - **Login:**
+     - Users can log in by providing their email and password.
+     - Validates credentials and redirects to the main screen upon success.
+   - **Registration:**
+     - Users can create a new account by providing their name, email, and password.
+     - Validates fields and detects already-registered emails.
 
-# OR using Yarn
-yarn start
-```
+---
 
-## Step 2: Start your Application
+### 3. **Permissions**
+   - **Location:**
+     - The app requests permission to access the device's location.
+     - Allows geolocating contacts or important locations (if map functionality is enabled).
+   - **Storage:**
+     - Permission to upload images from the gallery, useful for associating photos with contacts.
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+---
 
-### For Android
+### 4. **Home (Main Screen)**
+   - **Description:** A home view displaying a list of saved contacts.
+   - **Features:**
+     - Search for contacts by name or keyword.
+     - Access details of a specific contact.
+     - Floating button to add new contacts.
 
-```bash
-# using npm
-npm run android
+---
 
-# OR using Yarn
-yarn android
-```
+### 5. **Contact Management**
+   - **Adding Contacts:**
+     - Users can add a new contact with the following details:
+       - Name
+       - Phone number
+       - Address
+       - Image (optional, uploaded from the gallery).
+   - **Editing Contacts:**
+     - Users can edit the information of an existing contact.
+   - **Deleting Contacts:**
+     - Option to delete a contact from the list.
 
-### For iOS
+---
 
-```bash
-# using npm
-npm run ios
+## Technologies Used 🛠️
+- **React Native**: Main framework for app development.
+- **AsyncStorage**: Local storage for managing the app state (onboarding, preferences).
+- **React Navigation**: For navigation between screens (Onboarding, Login, Home, etc.).
+- **Additional Libraries:**
+  - Permissions handling: `react-native-permissions`.
 
-# OR using Yarn
-yarn ios
-```
+---
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+## Installation and Setup 🔧
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/yourusername/contact-app.git
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Configure necessary permissions:
+   - **Android**: Edit `AndroidManifest.xml` to add location and storage permissions.
+   - **iOS**: Configure permissions in `Info.plist`.
 
-## Step 3: Modifying your App
+4. Run the app:
+   ```bash
+   npm run android # For Android devices
+   npm run ios # For iOS devices
+   ```
 
-Now that you have successfully run the app, let's modify it.
+---
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+## Screenshots 📸
+1. **Onboarding**:
+   ![Onboarding1](src/assets/img/onboarding1.jpg)
+   ![Onboarding2](src/assets/img/onboarding2.jpg)
+   ![Onboarding3](src/assets/img/onboarding3.jpg)
 
-## Congratulations! :tada:
+2. **Login**:
+   ![Login](src/assets/img/login.jpg)
 
-You've successfully run and modified your React Native App. :partying_face:
+3. **SingUp**:
+   ![SingUp](src/assets/img/singup.jpg)
 
-### Now what?
+4. **home**:
+   ![Home](src/assets/img/home.jpg)
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+5. **Permissions**:
+   ![Permissions](src/assets/img/pedirpermisos.jpg)
 
-# Troubleshooting
+6. **Create a new contact**:
+   ![Create a new contact](src/assets/img/crearcontacto.jpg)
+---
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.

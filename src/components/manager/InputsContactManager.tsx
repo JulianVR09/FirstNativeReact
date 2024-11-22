@@ -1,7 +1,8 @@
 // ContactForm.tsx
-import React from 'react';
+import * as React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import InputGeneric from '../InputGeneric';
+import MapView from 'react-native-maps';
 
 interface ContactFormProps {
   name: string;
@@ -12,6 +13,7 @@ interface ContactFormProps {
   setPhone: (text: string) => void;
   setEmail: (text: string) => void;
   selectImage: () => void;
+  takePhoto: () => void;
 }
 
 const ContactForm: React.FC<ContactFormProps> = ({
@@ -22,6 +24,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
   setPhone,
   setEmail,
   selectImage,
+  takePhoto
 }) => {
   return (
     <View style={styles.container}>
@@ -33,6 +36,11 @@ const ContactForm: React.FC<ContactFormProps> = ({
         <Text>Select Photo</Text>
       </TouchableOpacity>
 
+      <TouchableOpacity style={styles.photoButton} onPress={takePhoto}>
+        <Text>Take Photo</Text>
+      </TouchableOpacity>
+
+      <MapView/>
 
     </View>
   );
